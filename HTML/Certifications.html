@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ravisankar's Certifications</title>
+    <link rel="icon" href="../images/certificate-favicon.ico">
+    <link rel="stylesheet" href="../CSS/Certifications.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.fog.min.js"></script>
+</head>
+<body>
+    <div id="vanta-bg"></div>
+
+    <div class="site-wrapper">
+        <header class="page-header">
+            <h1>Validation Holo-Deck</h1>
+            <p>An interactive showcase of my certified skills and continued learning.</p>
+        </header>
+
+        <main class="holodeck">
+            <div class="carousel-container">
+                <div class="carousel">
+                    <!-- Certificate 1 -->
+                    <div class="carousel-item" style="--i:0;" data-modal-target="modal-ai">
+                        <img src="https://placehold.co/400x280/1F2937/38BDF8?text=AI+Engineer" alt="AI Engineer Certificate">
+                        <h4>Artificial Intelligence Engineer</h4>
+                        <p>Simplilearn</p>
+                    </div>
+                    <!-- Certificate 2 -->
+                    <div class="carousel-item" style="--i:1;" data-modal-target="modal-ml">
+                        <img src="https://placehold.co/400x280/1F2937/38BDF8?text=Machine+Learning" alt="Machine Learning Certificate">
+                        <h4>Machine Learning</h4>
+                        <p>Simplilearn</p>
+                    </div>
+                    <!-- Certificate 3 -->
+                    <div class="carousel-item" style="--i:2;" data-modal-target="modal-tf">
+                        <img src="https://placehold.co/400x280/1F2937/38BDF8?text=TensorFlow" alt="TensorFlow Certificate">
+                        <h4>Deep Learning with TensorFlow</h4>
+                        <p>IBM</p>
+                    </div>
+                    <!-- Certificate 4 -->
+                    <div class="carousel-item" style="--i:3;" data-modal-target="modal-ds">
+                        <img src="https://placehold.co/400x280/1F2937/38BDF8?text=Data+Science" alt="Data Science Certificate">
+                        <h4>Data Science with Python</h4>
+                        <p>Simplilearn</p>
+                    </div>
+                    <!-- Certificate 5 -->
+                    <div class="carousel-item" style="--i:4;" data-modal-target="modal-cp">
+                        <img src="https://placehold.co/400x280/1F2937/38BDF8?text=Programming" alt="Competitive Programming Certificate">
+                        <h4>Competitive Programming</h4>
+                        <p>Cipher Schools</p>
+                    </div>
+                </div>
+            </div>
+             <p class="drag-instruction">Click and drag to rotate the deck.</p>
+        </main>
+        
+        <footer class="page-footer">
+            <a href="../index.html">Return to Command Center</a>
+        </footer>
+    </div>
+    
+    <!-- Modals -->
+    <div class="modal-backdrop" id="modal-backdrop"></div>
+    
+    <div class="modal" id="modal-ai">
+        <button class="modal-close">&times;</button>
+        <img src="https://placehold.co/800x560/111827/FFFFFF?text=AI+Engineer+Certificate" alt="AI Engineer Certificate Detail">
+    </div>
+    <div class="modal" id="modal-ml">
+        <button class="modal-close">&times;</button>
+        <img src="https://placehold.co/800x560/111827/FFFFFF?text=Machine+Learning+Certificate" alt="Machine Learning Certificate Detail">
+    </div>
+    <div class="modal" id="modal-tf">
+        <button class="modal-close">&times;</button>
+        <img src="https://placehold.co/800x560/111827/FFFFFF?text=TensorFlow+Certificate" alt="TensorFlow Certificate Detail">
+    </div>
+     <div class="modal" id="modal-ds">
+        <button class="modal-close">&times;</button>
+        <img src="https://placehold.co/800x560/111827/FFFFFF?text=Data+Science+Certificate" alt="Data Science Certificate Detail">
+    </div>
+     <div class="modal" id="modal-cp">
+        <button class="modal-close">&times;</button>
+        <img src="https://placehold.co/800x560/111827/FFFFFF?text=Competitive+Programming+Certificate" alt="Competitive Programming Certificate Detail">
+    </div>
+
+    <script>
+        // --- VANTA.js Animated Fog Background ---
+        VANTA.FOG({
+            el: "#vanta-bg",
+            mouseControls: true,
+            touchControls: true,
+            gyroControls: false,
+            highlightColor: 0x2c6b9c,
+            midtoneColor: 0x224d8f,
+            lowlightColor: 0x8a3ffc,
+            baseColor: 0x0d1117,
+        });
+
+        // --- 3D Carousel Logic ---
+        const carousel = document.querySelector('.carousel');
+        const items = document.querySelectorAll('.carousel-item');
+        let isMouseDown = false;
+        let startX;
+        let currentRotation = 0;
+        let dragStartRotation = 0;
+
+        carousel.addEventListener('mousedown', (e) => {
+            isMouseDown = true;
+            startX = e.pageX;
+            dragStartRotation = currentRotation;
+            carousel.style.transition = 'none'; // Disable transition during drag for immediate response
+        });
+
+        document.addEventListener('mouseup', () => {
+            isMouseDown = false;
+            carousel.style.transition = 'transform 0.5s'; // Re-enable transition
+        });
+
+        document.addEventListener('mousemove', (e) => {
+            if (!isMouseDown) return;
+            e.preventDefault();
+            const x = e.pageX;
+            const walk = (x - startX) * 0.5; // Drag sensitivity
+            currentRotation = dragStartRotation + walk;
+            carousel.style.transform = `rotateY(${-currentRotation}deg)`;
+        });
+
+
+        // --- Modal Logic ---
+        const modalBackdrop = document.getElementById('modal-backdrop');
+
+        items.forEach(item => {
+            let clickStartTime;
+            item.addEventListener('mousedown', () => {
+                clickStartTime = Date.now();
+            });
+
+            item.addEventListener('mouseup', () => {
+                if (Date.now() - clickStartTime < 200) { // Only register as a click if held for < 200ms
+                    const modalId = item.dataset.modalTarget;
+                    const modal = document.getElementById(modalId);
+                    openModal(modal);
+                }
+            });
+        });
+        
+        modalBackdrop.addEventListener('click', () => {
+            const activeModal = document.querySelector('.modal.active');
+            if (activeModal) closeModal(activeModal);
+        });
+        
+        document.querySelectorAll('.modal-close').forEach(button => {
+            button.addEventListener('click', () => closeModal(button.closest('.modal')));
+        });
+
+        function openModal(modal) {
+            if (modal == null) return;
+            modal.classList.add('active');
+            modalBackdrop.classList.add('active');
+        }
+
+        function closeModal(modal) {
+            if (modal == null) return;
+            modal.classList.remove('active');
+            modalBackdrop.classList.remove('active');
+        }
+
+    </script>
+</body>
+</html>

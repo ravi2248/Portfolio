@@ -1,0 +1,288 @@
+/* ---
+   Design System & Core Foundation
+   "Crafted for a universe of one."
+--- */
+:root {
+    --bg-primary: #0d1117;
+    --border-color: rgba(139, 172, 218, 0.2);
+    --text-primary: #e6edf3;
+    --text-secondary: #7d8590;
+    --accent-glow: #38bdf8;
+    --accent-secondary: #3fb950;
+    --font-heading: 'Roboto Mono', monospace;
+    --font-body: 'Inter', sans-serif;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: var(--font-body);
+    color: var(--text-primary);
+    background-color: var(--bg-primary);
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+#vanta-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.site-wrapper {
+    position: relative;
+    z-index: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* --- Header & Navigation --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 0;
+    animation: slideDown 0.8s ease-out;
+}
+
+.nav-brand {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-secondary);
+    font-family: var(--font-heading);
+    margin-left: 2rem;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--text-primary);
+}
+
+.nav-button {
+    border: 1px solid var(--accent-glow);
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    color: var(--accent-glow) !important;
+    transition: all 0.3s ease;
+}
+.nav-button:hover {
+    background-color: var(--accent-glow);
+    color: var(--bg-primary) !important;
+}
+
+/* --- Hero Section & Observer --- */
+.hero-section {
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+}
+
+.hero-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    align-items: center;
+    gap: 2rem;
+    width: 100%;
+}
+
+.hero-text {
+    animation: fadeIn 1s ease-out 0.5s both;
+}
+
+.hero-title {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    line-height: 1.1;
+}
+
+.hero-subtitle {
+    color: var(--accent-glow);
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    margin: 1rem 0;
+}
+
+.hero-description {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    max-width: 55ch;
+}
+
+.hero-interactive {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#observer {
+    width: clamp(150px, 20vw, 250px);
+    cursor: crosshair;
+    filter: url(#glow);
+}
+
+.observer-body {
+    fill: none;
+    stroke: var(--accent-glow);
+    stroke-width: 4;
+}
+
+.eye-socket {
+    fill: var(--bg-primary);
+}
+
+.pupil {
+    fill: var(--accent-glow);
+    /* Transition removed for JS animation */
+}
+
+/* --- Skills Section: The Holographic Matrix --- */
+.skills-section {
+    padding: 6rem 0;
+    text-align: center;
+}
+
+.section-title {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    margin-bottom: 3rem;
+    color: var(--text-secondary);
+}
+
+.skills-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 4rem;
+    perspective: 1000px;
+}
+
+.skill-cube {
+    width: 200px;
+    height: 200px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 1s cubic-bezier(0.25, 1, 0.5, 1);
+    margin: 0 auto;
+    cursor: pointer;
+}
+
+.cube-face {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--accent-glow);
+    background: rgba(13, 17, 23, 0.6);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 0 20px rgba(56, 189, 248, 0.2);
+    backdrop-filter: blur(5px);
+}
+
+.front  { transform: translateZ(100px); }
+.back   { transform: rotateY(180deg) translateZ(100px); }
+.top    { transform: rotateX(90deg) translateZ(100px); }
+.bottom { transform: rotateX(-90deg) translateZ(100px); }
+.left   { transform: rotateY(-90deg) translateZ(100px); }
+.right  { transform: rotateY(90deg) translateZ(100px); }
+
+.skill-cube:hover {
+    transform: rotateY(-180deg);
+}
+
+.cube-face.back {
+    padding: 1.5rem;
+    align-items: flex-start;
+    text-align: left;
+    flex-direction: column;
+}
+
+.cube-face.back ul {
+    list-style: none;
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: var(--text-primary);
+    line-height: 1.8;
+}
+
+/* --- Footer --- */
+.footer {
+    padding: 3rem 0;
+    border-top: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    font-family: var(--font-mono);
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.social-links {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.social-links a {
+    color: var(--text-secondary);
+    font-size: 1.5rem;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-links a:hover {
+    color: var(--accent-glow);
+    transform: translateY(-3px);
+}
+
+
+/* --- Keyframe Animations --- */
+@keyframes slideDown {
+    from { transform: translateY(-100%); }
+    to { transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 900px) {
+    .hero-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    .hero-text { order: 2; }
+    .hero-interactive { order: 1; margin-bottom: 2rem; }
+}
+
+@media (max-width: 600px) {
+    .site-wrapper { padding: 0 1rem; }
+    .nav-links { display: none; }
+    .hero-section { min-height: 80vh; }
+    .skills-grid { gap: 3rem; }
+    .footer-content {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+}

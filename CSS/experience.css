@@ -1,0 +1,278 @@
+/* ---
+   Design System: Interactive Career Synthesis
+   "Experience is not a list, it's a narrative."
+--- */
+:root {
+    --bg-primary: #02040a;
+    --border-glass: rgba(56, 189, 248, 0.2);
+    --bg-glass: rgba(15, 23, 42, 0.6);
+    --text-primary: #e6edf3;
+    --text-secondary: #7d8590;
+    --accent-glow: #38bdf8;
+    --accent-green: #3fb950;
+    --font-heading: 'Roboto Mono', monospace;
+    --font-body: 'Inter', sans-serif;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--text-primary);
+    background-color: var(--bg-primary);
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+#starfield-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.site-wrapper {
+    position: relative;
+    z-index: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* --- Page Header --- */
+.page-header {
+    text-align: center;
+    padding: 4rem 0;
+    animation: fadeIn 1s ease-out;
+}
+.page-header h1 {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    color: var(--text-primary);
+}
+.page-header p {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    margin-top: 0.5rem;
+}
+
+/* --- Neural Pathway --- */
+.pathway-container {
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start; /* Align nodes to the top */
+    padding: 4rem 0;
+    width: 100%;
+}
+
+/* The Synapse Line */
+.pathway-line {
+    position: absolute;
+    top: 50px; /* Aligns with the center of the node cores */
+    left: 10%;
+    right: 10%;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--accent-glow), transparent);
+    z-index: -1;
+    animation: flow 4s linear infinite;
+}
+
+.pathway-node {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 30%;
+}
+
+.node-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+}
+
+.node-core {
+    width: 100px;
+    height: 100px;
+    background-color: var(--bg-primary);
+    border: 3px solid var(--accent-glow);
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    font-size: 2.5rem;
+    color: var(--accent-glow);
+    box-shadow: 0 0 15px var(--accent-glow), inset 0 0 10px rgba(56, 189, 248, 0.3);
+    transition: all 0.3s ease;
+    animation: pulseNode 3s infinite ease-in-out;
+}
+.pathway-node:hover .node-core,
+.pathway-node.active .node-core {
+    transform: scale(1.1);
+    box-shadow: 0 0 25px var(--accent-glow), 0 0 40px var(--accent-glow), inset 0 0 15px rgba(56, 189, 248, 0.5);
+}
+
+.node-label {
+    text-align: center;
+    margin-top: 1.5rem;
+    font-family: var(--font-heading);
+}
+.node-label h4 {
+    font-size: 1.1rem;
+    color: var(--text-primary);
+    margin: 0;
+    transition: color 0.3s ease;
+}
+.pathway-node.active .node-label h4 {
+    color: var(--accent-glow);
+}
+.node-label p {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+/* Glass Card for Details - Expanding Section */
+.node-details {
+    width: 100%;
+    margin-top: 2rem;
+    background: var(--bg-glass);
+    border: 1px solid var(--border-glass);
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
+    transition: max-height 0.7s cubic-bezier(0.25, 1, 0.5, 1), padding 0.7s ease;
+    overflow: hidden;
+    padding: 0 1.5rem;
+}
+.pathway-node.active .node-details {
+    padding: 1.5rem;
+}
+
+.node-details h3 {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    color: var(--text-primary);
+    margin: 0 0 0.25rem;
+}
+.card-subtitle {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+}
+.details-section {
+    margin-bottom: 1.5rem;
+}
+.details-section h5 {
+    font-family: var(--font-heading);
+    font-size: 0.9rem;
+    color: var(--accent-glow);
+    margin: 0 0 0.75rem;
+    text-transform: uppercase;
+}
+.details-section ul {
+    list-style: none;
+    text-align: left;
+}
+.details-section li {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+    padding-left: 1.2rem;
+    position: relative;
+}
+.details-section li::before {
+    content: '›';
+    position: absolute;
+    left: 0;
+    color: var(--accent-glow);
+    font-weight: 800;
+}
+
+.impact {
+    font-size: 0.9rem;
+    color: var(--text-primary);
+    background-color: rgba(63, 185, 80, 0.1);
+    border-left: 3px solid var(--accent-green);
+    padding: 0.75rem;
+}
+
+.tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+.tech-tags span {
+    background-color: var(--border-color);
+    color: var(--text-primary);
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-family: var(--font-mono);
+}
+
+
+/* --- Footer --- */
+.page-footer {
+    text-align: center;
+    padding: 4rem 0 2rem;
+}
+.page-footer a {
+    font-family: var(--font-heading);
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+.page-footer a:hover {
+    color: var(--accent-glow);
+}
+
+/* --- Animations & Responsive --- */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+@keyframes pulseNode {
+    0%, 100% { opacity: 0.8; }
+    50% { opacity: 1; }
+}
+@keyframes flow {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+}
+
+@media (max-width: 900px) {
+    .pathway-container {
+        flex-direction: column;
+        gap: 2rem;
+        align-items: center;
+        padding: 2rem 0;
+    }
+    .pathway-line {
+        left: 50%;
+        top: 5%;
+        bottom: 5%;
+        width: 3px;
+        height: 90%;
+        background: linear-gradient(180deg, transparent, var(--accent-glow), transparent);
+        animation-name: flow-vertical;
+    }
+    @keyframes flow-vertical {
+        0% { background-position: 0 -200%; }
+        100% { background-position: 0 200%; }
+    }
+    .pathway-node {
+        width: 100%;
+        max-width: 500px;
+    }
+}
+
+@media (max-width: 600px) {
+    .site-wrapper { padding: 1rem; }
+    .page-header h1 { font-size: 2.5rem; }
+}

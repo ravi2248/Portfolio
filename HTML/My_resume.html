@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ravisankar Chengannagari // Genesis Matrix</title>
+    <link rel="icon" href="../images/projects-favicon.ico">
+    <link rel="stylesheet" href="../CSS/about.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+</head>
+<body>
+    <canvas id="matrix-background"></canvas>
+    <div class="site-wrapper">
+        <div class="dossier-grid">
+            <aside class="dossier-left">
+                <div class="avatar-card">
+                    <svg id="observer" viewBox="0 0 200 200">
+                        <path class="observer-body" d="M 50,150 C 10,120 10,60 50,30 H 150 C 190,60 190,120 150,150 Z" />
+                        <circle class="pupil" id="left-pupil" cx="75" cy="80" r="10" /><circle class="pupil" id="right-pupil" cx="125" cy="80" r="10" />
+                    </svg>
+                    <h2>Ravisankar C.</h2><p>Machine Learning Engineer</p>
+                    <a href="../Resume.pdf" download="Ravisankar_Chengannagari_Resume.pdf" class="download-button"><i class="fas fa-file-download"></i> Download Dossier PDF</a>
+                </div>
+            </aside>
+            <main class="dossier-right">
+                <section class="resume-panel">
+                    <h2 class="panel-title">[ SUMMARY ]</h2>
+                    <p>Machine Learning Engineer with experience designing end-to-end ML pipelines, predictive modeling, and deploying models using Docker and Flask. Skilled in NLP, deep learning, and feature engineering, with a strong foundation in scalable ML systems.</p>
+                </section>
+                <section class="resume-panel">
+                    <h2 class="panel-title">[ SKILL_MATRIX ]</h2>
+                    <div class="skills-grid">
+                        <div class="skill-node">TensorFlow</div><div class="skill-node">Scikit-learn</div><div class="skill-node">XGBoost</div>
+                        <div class="skill-node">LightGBM</div><div class="skill-node">Docker</div><div class="skill-node">MLFlow</div>
+                        <div class="skill-node">Flask/FastAPI</div><div class="skill-node">Python</div><div class="skill-node">SQL</div>
+                        <div class="skill-node">Spark</div><div class="skill-node">NLP</div><div class="skill-node">Plotly</div>
+                    </div>
+                </section>
+                <section class="resume-panel">
+                    <h2 class="panel-title">[ EXPERIENCE_LOG ]</h2>
+                    <div class="log-entry"><h4>Student Teaching Assistant</h4><p class="log-meta">Mercy University | Feb 2025 - Present</p><p>Mentoring students in Python, Java, and Data Structures; providing debugging support and grading assignments.</p></div>
+                    <div class="log-entry"><h4>Programmer Analyst</h4><p class="log-meta">Cognizant | 2022 - 2023</p><p>Designed end-to-end ML pipelines, developed predictive models achieving 20-30% accuracy improvements, and deployed scalable solutions using Docker.</p></div>
+                </section>
+                 <section class="resume-panel">
+                    <h2 class="panel-title">[ ACADEMIC_RECORDS ]</h2>
+                     <div class="log-entry"><h4>MS, Computer Science (Machine Learning)</h4><p class="log-meta">Mercy University, NY | Exp. Dec 2025</p></div>
+                    <div class="log-entry"><h4>B.Tech, Computer Science (Data Science)</h4><p class="log-meta">Lovely Professional University, IN | Aug 2022</p></div>
+                </section>
+            </main>
+        </div>
+        <footer class="page-footer"><a href="../index.html">RETURN_TO_ORACLE</a></footer>
+    </div>
+    <script>
+        const canvas = document.getElementById('matrix-background'), ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = document.body.scrollHeight > window.innerHeight ? document.body.scrollHeight : window.innerHeight;
+        const alphabet = 'アァカサタナハマヤャラワガザダバパイィキシチニヒミリヰギジヂビピウゥクスツヌフムユュルグズブヅプエェケセテネヘメレヱゲゼデベペオォコソトノホモヨョロヲゴゾドボポヴッン01';
+        const fontSize = 16, columns = Math.ceil(canvas.width / fontSize), rainDrops = Array(columns).fill(1);
+        const drawMatrix = () => {
+            ctx.fillStyle = 'rgba(2, 4, 10, 0.05)'; ctx.fillRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = '#38bdf8'; ctx.font = fontSize + 'px monospace';
+            for (let i = 0; i < rainDrops.length; i++) {
+                ctx.fillText(alphabet.charAt(Math.floor(Math.random() * alphabet.length)), i * fontSize, rainDrops[i] * fontSize);
+                if (rainDrops[i] * fontSize > canvas.height && Math.random() > 0.975) rainDrops[i] = 0;
+                rainDrops[i]++;
+            }
+        };
+        setInterval(drawMatrix, 33);
+
+        const leftPupil = document.getElementById('left-pupil'), rightPupil = document.getElementById('right-pupil'), observer = document.getElementById('observer');
+        let mouseX = window.innerWidth / 2, mouseY = window.innerHeight / 2;
+        document.addEventListener('mousemove', e => { mouseX = e.clientX; mouseY = e.clientY; });
+        function animateEyes() {
+            const rect = observer.getBoundingClientRect(), maxPupilOffset = 6;
+            const svgMouseX = ((mouseX - rect.left) / rect.width) * 200, svgMouseY = ((mouseY - rect.top) / rect.height) * 200;
+            const angleLeft = Math.atan2(svgMouseY - 80, svgMouseX - 75);
+            leftPupil.setAttribute('cx', 75 + Math.cos(angleLeft) * maxPupilOffset);
+            leftPupil.setAttribute('cy', 80 + Math.sin(angleLeft) * maxPupilOffset);
+            const angleRight = Math.atan2(svgMouseY - 80, svgMouseX - 125);
+            rightPupil.setAttribute('cx', 125 + Math.cos(angleRight) * maxPupilOffset);
+            rightPupil.setAttribute('cy', 80 + Math.sin(angleRight) * maxPupilOffset);
+            requestAnimationFrame(animateEyes);
+        }
+        animateEyes();
+        window.addEventListener('resize', () => {
+             canvas.width = window.innerWidth;
+             canvas.height = document.body.scrollHeight > window.innerHeight ? document.body.scrollHeight : window.innerHeight;
+        });
+    </script>
+</body>
+</html>

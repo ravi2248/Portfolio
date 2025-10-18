@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ravisankar Chengannagari /// ML Engineer</title>
+    <link rel="icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="CSS/index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.fog.min.js"></script>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+</head>
+<body>
+    <div id="vanta-bg"></div>
+
+    <div class="site-wrapper">
+        <header class="navbar">
+            <div class="nav-brand">RC_</div>
+            <nav class="nav-links">
+                <a href="HTML/Projects.html">./Projects</a>
+                <a href="HTML/Experience.html">./Experience</a>
+                <a href="HTML/Certifications.html">./Certs</a>
+                <a href="HTML/My_resume.html" class="nav-button">Get Resume</a>
+            </nav>
+        </header>
+
+        <main class="hero-section">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">Ravisankar Chengannagari</h1>
+                    <p class="hero-subtitle">Machine Learning Engineer</p>
+                    <p class="hero-description">Architecting intelligent systems by weaving data into actionable insights. I build, deploy, and scale end-to-end ML solutions that drive innovation.</p>
+                </div>
+                <div class="hero-interactive">
+                    <!-- The Observer SVG -->
+                    <svg id="observer" viewBox="0 0 200 200">
+                        <defs>
+                            <filter id="glow">
+                                <feGaussianBlur stdDeviation="3.5" result="coloredBlur"/>
+                                <feMerge>
+                                    <feMergeNode in="coloredBlur"/>
+                                    <feMergeNode in="SourceGraphic"/>
+                                </feMerge>
+                            </filter>
+                        </defs>
+                        <path class="observer-body" d="M 50,150 C 10,120 10,60 50,30 H 150 C 190,60 190,120 150,150 Z" />
+                        <circle class="eye-socket" cx="75" cy="80" r="20" />
+                        <circle class="eye-socket" cx="125" cy="80" r="20" />
+                        <g id="eyes">
+                            <circle class="pupil" id="left-pupil" cx="75" cy="80" r="8" />
+                            <circle class="pupil" id="right-pupil" cx="125" cy="80" r="8" />
+                        </g>
+                    </svg>
+                </div>
+            </div>
+        </main>
+
+        <section class="skills-section">
+            <h2 class="section-title">SKILLS_MATRIX.EXE</h2>
+            <div class="skills-container">
+                 <!-- Skill Cube 1 -->
+                <div class="skill-cube">
+                    <div class="cube-face front">ML & AI</div>
+                    <div class="cube-face back">
+                        <ul>
+                            <li>TensorFlow</li>
+                            <li>Scikit-learn</li>
+                            <li>NLP / CV</li>
+                            <li>Deep Learning</li>
+                        </ul>
+                    </div>
+                    <div class="cube-face top"></div>
+                    <div class="cube-face bottom"></div>
+                    <div class="cube-face left"></div>
+                    <div class="cube-face right"></div>
+                </div>
+                <!-- Skill Cube 2 -->
+                <div class="skill-cube">
+                    <div class="cube-face front">MLOps</div>
+                    <div class="cube-face back">
+                        <ul>
+                            <li>Docker</li>
+                            <li>MLFlow</li>
+                            <li>Flask / FastAPI</li>
+                            <li>Deployment</li>
+                        </ul>
+                    </div>
+                    <div class="cube-face top"></div>
+                    <div class="cube-face bottom"></div>
+                    <div class="cube-face left"></div>
+                    <div class="cube-face right"></div>
+                </div>
+                <!-- Skill Cube 3 -->
+                <div class="skill-cube">
+                    <div class="cube-face front">Data Tools</div>
+                    <div class="cube-face back">
+                        <ul>
+                            <li>Python / R</li>
+                            <li>SQL</li>
+                            <li>Hadoop / Spark</li>
+                            <li>ETL Pipelines</li>
+                        </ul>
+                    </div>
+                    <div class="cube-face top"></div>
+                    <div class="cube-face bottom"></div>
+                    <div class="cube-face left"></div>
+                    <div class="cube-face right"></div>
+                </div>
+                <!-- Skill Cube 4 -->
+                <div class="skill-cube">
+                    <div class="cube-face front">Analytics</div>
+                    <div class="cube-face back">
+                        <ul>
+                            <li>Time Series</li>
+                            <li>Matplotlib</li>
+                            <li>Seaborn / Plotly</li>
+                            <li>Hypothesis Testing</li>
+                        </ul>
+                    </div>
+                    <div class="cube-face top"></div>
+                    <div class="cube-face bottom"></div>
+                    <div class="cube-face left"></div>
+                    <div class="cube-face right"></div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <div class="footer-content">
+                <p>&copy; 2025 Ravisankar Chengannagari /// Synthesis Complete</p>
+                <div class="social-links">
+                    <a href="https://linkedin.com/in/ravisankar-chengannagari-0148b916b" target="_blank" aria-label="LinkedIn" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://github.com/ravi2248" target="_blank" aria-label="GitHub" title="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="mailto:rchengannagari@mercy.edu" aria-label="Email" title="Email"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // --- VANTA.js Animated Fog Background ---
+        VANTA.FOG({
+            el: "#vanta-bg",
+            mouseControls: true,
+            touchControls: true,
+            gyroControls: false,
+            minHeight: 200.00,
+            minWidth: 200.00,
+            highlightColor: 0x2c6b9c,
+            midtoneColor: 0x224d8f,
+            lowlightColor: 0x8a3ffc,
+            baseColor: 0x0d1117,
+            blurFactor: 0.5,
+            speed: 1.2,
+            zoom: 0.8
+        });
+
+        // --- Observer Eye Tracking ---
+        const observer = document.getElementById('observer');
+        const leftPupil = document.getElementById('left-pupil');
+        const rightPupil = document.getElementById('right-pupil');
+
+        const eyeCenterXLeft = 75;
+        const eyeCenterYLeft = 80;
+        const eyeCenterXRight = 125;
+        const eyeCenterYRight = 80;
+        const maxPupilOffset = 6;
+        let mouseX = window.innerWidth / 2;
+        let mouseY = window.innerHeight / 2;
+
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+        
+        function animateEyes() {
+            const rect = observer.getBoundingClientRect();
+            const svgMouseX = ((mouseX - rect.left) / rect.width) * 200;
+            const svgMouseY = ((mouseY - rect.top) / rect.height) * 200;
+
+            // Left Eye
+            const angleLeft = Math.atan2(svgMouseY - eyeCenterYLeft, svgMouseX - eyeCenterXLeft);
+            const xLeft = eyeCenterXLeft + Math.cos(angleLeft) * maxPupilOffset;
+            const yLeft = eyeCenterYLeft + Math.sin(angleLeft) * maxPupilOffset;
+            leftPupil.setAttribute('cx', xLeft);
+            leftPupil.setAttribute('cy', yLeft);
+
+            // Right Eye
+            const angleRight = Math.atan2(svgMouseY - eyeCenterYRight, svgMouseX - eyeCenterXRight);
+            const xRight = eyeCenterXRight + Math.cos(angleRight) * maxPupilOffset;
+            const yRight = eyeCenterYRight + Math.sin(angleRight) * maxPupilOffset;
+            rightPupil.setAttribute('cx', xRight);
+            rightPupil.setAttribute('cy', yRight);
+            
+            requestAnimationFrame(animateEyes);
+        }
+
+        animateEyes(); // Start the continuous animation loop
+    </script>
+</body>
+</html>

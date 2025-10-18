@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ravisankar's Experience Pathway</title>
+    <link rel="icon" href="../images/projects-favicon.ico">
+    <link rel="stylesheet" href="../CSS/experience.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/js/all.min.js"></script>
+</head>
+<body>
+    <div id="starfield-bg"></div>
+
+    <div class="site-wrapper">
+        <header class="page-header">
+            <h1>Career Neural Pathway</h1>
+            <p>An interactive synthesis of my professional roles and technical evolution.</p>
+        </header>
+
+        <main class="pathway-container">
+            <div class="pathway-line"></div>
+
+            <!-- Node 1: Cognizant Intern -->
+            <div class="pathway-node">
+                <div class="node-header">
+                    <div class="node-core"><i class="fas fa-laptop-code"></i></div>
+                    <div class="node-label">
+                        <h4>Intern</h4>
+                        <p>Jan 2022 - Jun 2022</p>
+                    </div>
+                </div>
+                <div class="node-details">
+                    <h3>Intern @ Cognizant</h3>
+                    <p class="card-subtitle">Remote</p>
+                    <div class="details-section">
+                        <h5>Key Responsibilities</h5>
+                        <ul>
+                            <li>Implemented proof-of-concept ML models for data analysis.</li>
+                            <li>Applied feature engineering to improve model performance.</li>
+                            <li>Developed prototypes for sentiment analysis & recommendation systems.</li>
+                        </ul>
+                    </div>
+                    <div class="details-section">
+                        <h5>Technologies Used</h5>
+                        <div class="tech-tags">
+                            <span>Python</span><span>Scikit-learn</span><span>Pandas</span><span>NLP</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Node 2: Programmer Analyst -->
+            <div class="pathway-node active">
+                 <div class="node-header">
+                    <div class="node-core"><i class="fas fa-cogs"></i></div>
+                    <div class="node-label">
+                        <h4>Programmer Analyst</h4>
+                        <p>Jun 2022 - Nov 2023</p>
+                    </div>
+                </div>
+                <div class="node-details">
+                    <h3>Programmer Analyst @ Cognizant</h3>
+                    <p class="card-subtitle">Bengaluru, India</p>
+                     <div class="details-section">
+                        <h5>Key Responsibilities</h5>
+                        <ul>
+                            <li>Designed & deployed end-to-end ML pipelines from research to production.</li>
+                            <li>Developed predictive models with Scikit-learn, XGBoost, & TensorFlow.</li>
+                            <li>Automated complex ETL workflows for large-scale datasets.</li>
+                            <li>Containerized and deployed models using Docker and Flask APIs.</li>
+                        </ul>
+                    </div>
+                    <div class="details-section">
+                        <h5>Impact Metric</h5>
+                        <p class="impact">Achieved a <strong>20-30% improvement</strong> in prediction accuracy across key models.</p>
+                    </div>
+                    <div class="details-section">
+                        <h5>Technologies Used</h5>
+                        <div class="tech-tags">
+                            <span>Docker</span><span>Flask</span><span>XGBoost</span><span>TensorFlow</span><span>ETL</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Node 3: Teaching Assistant -->
+            <div class="pathway-node">
+                 <div class="node-header">
+                    <div class="node-core"><i class="fas fa-chalkboard-teacher"></i></div>
+                    <div class="node-label">
+                        <h4>Teaching Assistant</h4>
+                        <p>Feb 2025 - Present</p>
+                    </div>
+                </div>
+                <div class="node-details">
+                    <h3>Teaching Assistant @ Mercy University</h3>
+                    <p class="card-subtitle">Dobbs Ferry, NY</p>
+                    <div class="details-section">
+                        <h5>Key Responsibilities</h5>
+                        <ul>
+                            <li>Mentoring students in Python, Java, and Data Structures courses.</li>
+                            <li>Providing one-on-one debugging and algorithmic problem-solving support.</li>
+                            <li>Grading assignments to reinforce core computer science principles.</li>
+                        </ul>
+                    </div>
+                    <div class="details-section">
+                        <h5>Technologies Used</h5>
+                        <div class="tech-tags">
+                            <span>Python</span><span>Java</span><span>Data Structures</span><span>Algorithms</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+        
+        <footer class="page-footer">
+            <a href="../index.html">Return to Command Center</a>
+        </footer>
+    </div>
+
+    <script>
+        // --- Starfield Background with Three.js ---
+        let scene, camera, renderer, stars;
+        function initStarfield() {
+            scene = new THREE.Scene();
+            camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 1, 1000);
+            camera.position.z = 1;
+            renderer = new THREE.WebGLRenderer({ canvas: document.querySelector('#starfield-bg'), alpha: true });
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+            const starVertices = [];
+            for (let i = 0; i < 10000; i++) {
+                const x = (Math.random() - 0.5) * 2000;
+                const y = (Math.random() - 0.5) * 2000;
+                const z = (Math.random() - 0.5) * 2000;
+                starVertices.push(x, y, z);
+            }
+            const starGeometry = new THREE.BufferGeometry();
+            starGeometry.setAttribute('position', new THREE.Float32BufferAttribute(starVertices, 3));
+            const starMaterial = new THREE.PointsMaterial({ color: 0x888888, size: 0.7 });
+            stars = new THREE.Points(starGeometry, starMaterial);
+            scene.add(stars);
+            window.addEventListener('resize', onWindowResize, false);
+            animateStarfield();
+        }
+        function animateStarfield() {
+            requestAnimationFrame(animateStarfield);
+            stars.rotation.x += 0.0001;
+            stars.rotation.y += 0.0001;
+            renderer.render(scene, camera);
+        }
+        function onWindowResize() {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        }
+        initStarfield();
+
+        // --- Interactive Node Logic ---
+        const nodes = document.querySelectorAll('.pathway-node');
+        nodes.forEach(node => {
+            const header = node.querySelector('.node-header');
+            const details = node.querySelector('.node-details');
+            
+            // Set initial height for smooth transition
+            if (node.classList.contains('active')) {
+                details.style.maxHeight = details.scrollHeight + "px";
+            } else {
+                details.style.maxHeight = 0;
+            }
+
+            header.addEventListener('click', () => {
+                const currentActive = document.querySelector('.pathway-node.active');
+                if (currentActive && currentActive !== node) {
+                    currentActive.classList.remove('active');
+                    currentActive.querySelector('.node-details').style.maxHeight = 0;
+                }
+                
+                node.classList.toggle('active');
+                if (node.classList.contains('active')) {
+                    details.style.maxHeight = details.scrollHeight + "px";
+                } else {
+                    details.style.maxHeight = 0;
+                }
+            });
+        });
+    </script>
+</body>
+</html>
