@@ -11,6 +11,39 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.fog.min.js"></script>
+
+    <style>
+        .modal {
+            /* Make modal wider for better PDF viewing */
+            max-width: 900px;
+            /* Adjust padding if needed, or let the embed handle it */
+            padding: 0; 
+            overflow: hidden; /* Hide scrollbars on the modal itself */
+        }
+
+        .modal-close {
+            /* Ensure close button is on top */
+            z-index: 10;
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            background: #444;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+        }
+
+        .pdf-viewer {
+            width: 100%;
+            height: 85vh; /* Set height relative to the viewport */
+            border: none;
+            /* Ensure the embed starts below the close button */
+            padding-top: 45px; 
+            box-sizing: border-box;
+        }
+    </style>
 </head>
 <body>
     <div id="vanta-bg"></div>
@@ -64,28 +97,31 @@
         </footer>
     </div>
     
-    <!-- Modals -->
     <div class="modal-backdrop" id="modal-backdrop"></div>
     
     <div class="modal" id="modal-ai">
         <button class="modal-close">&times;</button>
-        <img src="https://placehold.co/800x560/111827/FFFFFF?text=AI+Engineer+Certificate" alt="AI Engineer Certificate Detail">
+        <embed src="../PDFS/AI_Engineer.pdf" type="application/pdf" class="pdf-viewer">
     </div>
+    
     <div class="modal" id="modal-ml">
         <button class="modal-close">&times;</button>
-        <img src="https://placehold.co/800x560/111827/FFFFFF?text=Machine+Learning+Certificate" alt="Machine Learning Certificate Detail">
+        <embed src="../PDFS/Machine_Learning.pdf" type="application/pdf" class="pdf-viewer">
     </div>
+    
     <div class="modal" id="modal-tf">
         <button class="modal-close">&times;</button>
-        <img src="https://placehold.co/800x560/111827/FFFFFF?text=TensorFlow+Certificate" alt="TensorFlow Certificate Detail">
+        <embed src="../PDFS/.pdf" type="application/pdf" class="pdf-viewer">
     </div>
-     <div class="modal" id="modal-ds">
+    
+    <div class="modal" id="modal-ds">
         <button class="modal-close">&times;</button>
-        <img src="https://placehold.co/800x560/111827/FFFFFF?text=Data+Science+Certificate" alt="Data Science Certificate Detail">
+        <embed src="../PDFS/Data_Science_with_Python.pdf" type="application/pdf" class="pdf-viewer">
     </div>
-     <div class="modal" id="modal-cp">
+    
+    <div class="modal" id="modal-cp">
         <button class="modal-close">&times;</button>
-        <img src="https://placehold.co/800x560/111827/FFFFFF?text=Competitive+Programming+Certificate" alt="Competitive Programming Certificate Detail">
+        <embed src="../PDFS/DSA.pdf" type="application/pdf" class="pdf-viewer">
     </div>
 
     <script>
@@ -131,7 +167,7 @@
         });
 
 
-        // --- Modal Logic ---
+        // --- Modal Logic (No changes needed here) ---
         const modalBackdrop = document.getElementById('modal-backdrop');
 
         items.forEach(item => {
