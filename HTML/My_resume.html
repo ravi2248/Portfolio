@@ -22,7 +22,7 @@
                         <circle class="pupil" id="left-pupil" cx="75" cy="80" r="10" /><circle class="pupil" id="right-pupil" cx="125" cy="80" r="10" />
                     </svg>
                     <h2>Ravisankar C.</h2><p>Machine Learning Engineer</p>
-                    <a href="../Resume.pdf" download="Ravisankar_Chengannagari_Resume.pdf" class="download-button"><i class="fas fa-file-download"></i> Download Dossier PDF</a>
+                    <a href="../RAVISANKAR_RESUME.pdf" download="Ravisankar_Chengannagari_Resume.pdf" class="download-button"><i class="fas fa-file-download"></i> Download Dossier PDF</a>
                 </div>
             </aside>
             <main class="dossier-right">
@@ -57,7 +57,8 @@
         const canvas = document.getElementById('matrix-background'), ctx = canvas.getContext('2d');
         canvas.width = window.innerWidth;
         canvas.height = document.body.scrollHeight > window.innerHeight ? document.body.scrollHeight : window.innerHeight;
-        const alphabet = 'アァカサタナハマヤャラワガザダバパイィキシチニヒミリヰギジヂビピウゥクスツヌフムユュルグズブヅプエェケセテネヘメレヱゲゼデベペオォコソトノホモヨョロヲゴゾドボポヴッン01';
+        //const alphabet = 'アァカサタナハマヤャラワガザダバパイィキシチニヒミリヰギジヂビピウゥクスツヌフムユュルグズブヅプエェケセテネヘメレヱゲゼデベペオォコソトノホモヨョロヲゴゾドボポヴッン01';
+        const alphabet = '01';
         const fontSize = 16, columns = Math.ceil(canvas.width / fontSize), rainDrops = Array(columns).fill(1);
         const drawMatrix = () => {
             ctx.fillStyle = 'rgba(2, 4, 10, 0.05)'; ctx.fillRect(0, 0, canvas.width, canvas.height);
