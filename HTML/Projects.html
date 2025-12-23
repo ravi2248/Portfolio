@@ -3,232 +3,465 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ravisankar's Projects</title>
-    <link rel="icon" href="../images/projects-favicon.ico">
+    <title>Ravisankar /// Neural Archives</title>
+    <link rel="icon" href="../images/favicon.ico">
     <link rel="stylesheet" href="../CSS/Projects.css">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=Inter:wght@400;600;800&display.swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Outfit:wght@300;500;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <div id="vanta-bg"></div>
+    <div class="grid-overlay"></div>
+    <div class="vignette"></div>
+
+    <div class="mobile-nav-overlay" id="mobile-overlay">
+        <div class="overlay-content">
+            <a href="../index.html" class="mobile-link">00 /// HOME</a>
+            <a href="Projects.html" class="mobile-link highlight">01 /// PROJECTS</a>
+            <a href="Experience.html" class="mobile-link">02 /// EXPERIENCE</a>
+            <a href="Certifications.html" class="mobile-link">03 /// CERTS</a>
+            <a href="My_resume.html" class="mobile-link">04 /// RESUME</a>
+        </div>
+    </div>
 
     <div class="site-wrapper">
-        <header class="page-header">
-            <h1>Project Repository</h1>
-            <p>A collection of deployed models, data analyses, and end-to-end ML solutions.</p>
+        <header class="navbar">
+            <div class="nav-brand"><a href="../index.html">RC_ARCHIVES</a></div>
+            <nav class="nav-links desktop-only">
+                <a href="../index.html" class="nav-item">./Home</a>
+                <a href="Projects.html" class="nav-item active">./Projects</a>
+                <a href="Experience.html" class="nav-item">./Exp</a>
+                <a href="Certifications.html" class="nav-item">./Certs</a>
+                <a href="My_resume.html" class="nav-item">./RESUME</a>
+            </nav>
+            <div class="mobile-menu-btn" onclick="toggleMenu()">
+                <div class="bar bar-1"></div>
+                <div class="bar bar-2"></div>
+                <div class="bar bar-3"></div>
+            </div>
+        </header>
+
+        <header class="page-title-section">
+            <h1 class="glitch-text" data-text="MODEL_REPOSITORY">MODEL_REPOSITORY</h1>
+            <p class="subtitle">Deployed pipelines, research benchmarks, and predictive engines.</p>
         </header>
 
         <main class="projects-grid">
-            <!-- Project Node 1: Emotion Classification -->
-            <div class="project-node" data-modal-target="modal-emotion">
-                <div class="node-core"></div>
-                <div class="project-card">
-                    <h3 class="card-title">Emotion Classification</h3>
-                    <p class="card-metric">94% Accuracy</p>
-                    <p class="card-description">Deployed a Bi-LSTM model to classify emotions in text data with high precision.</p>
-                    <div class="tech-stack">
-                        <i class="fa-brands fa-python" title="Python"></i>
-                        <span class="tech-label">TF</span>
-                        <span class="tech-label">NLTK</span>
+            
+            <div class="holo-card" data-modal-target="modal-news">
+                <div class="scan-line"></div>
+                <div class="card-content">
+                    <div class="card-header">
+                        <i class="fa-solid fa-newspaper card-icon"></i>
+                        <span class="card-id">NRMS_TRANSFORMER</span>
                     </div>
-                    <button class="card-button">View Details</button>
+                    <h3 class="card-title">News Recommendation</h3>
+                    <div class="metric-container">
+                        <div class="metric-ring" style="--p: 90; --c: #0aff0a;">
+                            <svg><circle cx="25" cy="25" r="20"></circle><circle cx="25" cy="25" r="20"></circle></svg>
+                            <div class="metric-value">90%<span>SOTA</span></div>
+                        </div>
+                        <div class="metric-text">
+                            <span>0.64 AUC</span>
+                            <small>MIND Dataset</small>
+                        </div>
+                    </div>
+                    <div class="tech-tags">
+                        <span>Word2Vec</span>
+                        <span>SVD</span>
+                        <span>Attention Mech</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="holo-card" data-modal-target="modal-emotion">
+                <div class="scan-line"></div>
+                <div class="card-content">
+                    <div class="card-header">
+                        <i class="fa-solid fa-face-smile card-icon"></i>
+                        <span class="card-id">DISTILBERT_LLM</span>
+                    </div>
+                    <h3 class="card-title">Emotion Classification</h3>
+                    <div class="metric-container">
+                        <div class="metric-ring" style="--p: 94; --c: #00f3ff;">
+                            <svg><circle cx="25" cy="25" r="20"></circle><circle cx="25" cy="25" r="20"></circle></svg>
+                            <div class="metric-value">94%<span>ACC</span></div>
+                        </div>
+                        <div class="metric-text">
+                            <span>Transformer</span>
+                            <small>416k Tweets</small>
+                        </div>
+                    </div>
+                    <div class="tech-tags">
+                        <span>Flask API</span>
+                        <span>Deep Learning</span>
+                        <span>TF-IDF</span>
+                    </div>
                 </div>
             </div>
             
-            <!-- Project Node 2: Credit Approval -->
-            <div class="project-node" data-modal-target="modal-credit">
-                <div class="node-core"></div>
-                <div class="project-card">
-                    <h3 class="card-title">Credit Approval Prediction</h3>
-                    <p class="card-metric">0.85 ROC-AUC</p>
-                    <p class="card-description">Built an end-to-end ML pipeline to predict credit approval, handling severe class imbalance.</p>
-                    <div class="tech-stack">
-                        <i class="fa-brands fa-python" title="Python"></i>
-                        <span class="tech-label">LGBM</span>
-                        <span class="tech-label">SMOTE</span>
+            <div class="holo-card" data-modal-target="modal-credit">
+                <div class="scan-line"></div>
+                <div class="card-content">
+                    <div class="card-header">
+                        <i class="fa-solid fa-credit-card card-icon"></i>
+                        <span class="card-id">RISK_SCORING</span>
                     </div>
-                    <button class="card-button">View Details</button>
+                    <h3 class="card-title">Credit Approval AI</h3>
+                    <div class="metric-container">
+                        <div class="metric-ring" style="--p: 85; --c: #bc13fe;">
+                            <svg><circle cx="25" cy="25" r="20"></circle><circle cx="25" cy="25" r="20"></circle></svg>
+                            <div class="metric-value">.85<span>AUC</span></div>
+                        </div>
+                        <div class="metric-text">
+                            <span>LightGBM</span>
+                            <small>1.4M Records</small>
+                        </div>
+                    </div>
+                    <div class="tech-tags">
+                        <span>SMOTE</span>
+                        <span>Feature Eng</span>
+                        <span>Gradient Boost</span>
+                    </div>
                 </div>
             </div>
 
-            <!-- Project Node 3: Sentiment Analysis -->
-            <div class="project-node" data-modal-target="modal-sentiment">
-                <div class="node-core"></div>
-                 <div class="project-card">
-                    <h3 class="card-title">Sentiment Analysis</h3>
-                    <p class="card-metric">86% Accuracy</p>
-                    <p class="card-description">Classified IMDB reviews using Naive Bayes, SVM, and Random Forest models.</p>
-                    <div class="tech-stack">
-                        <i class="fa-brands fa-python" title="Python"></i>
-                        <span class="tech-label">Sklearn</span>
-                        <span class="tech-label">PCA</span>
+            <div class="holo-card" data-modal-target="modal-fake-news">
+                <div class="scan-line"></div>
+                <div class="card-content">
+                    <div class="card-header">
+                        <i class="fa-solid fa-user-secret card-icon"></i>
+                        <span class="card-id">LOG_REGRESSION</span>
                     </div>
-                    <button class="card-button">View Details</button>
+                    <h3 class="card-title">Fake News Detector</h3>
+                    <div class="metric-container">
+                        <div class="metric-ring" style="--p: 95; --c: #ff0055;">
+                            <svg><circle cx="25" cy="25" r="20"></circle><circle cx="25" cy="25" r="20"></circle></svg>
+                            <div class="metric-value">95%<span>ACC</span></div>
+                        </div>
+                        <div class="metric-text">
+                            <span>WELFake Data</span>
+                            <small>NLP Pipeline</small>
+                        </div>
+                    </div>
+                    <div class="tech-tags">
+                        <span>Sklearn</span>
+                        <span>Text Preproc</span>
+                        <span>NLTK</span>
+                    </div>
                 </div>
             </div>
 
-            <!-- Project Node 4: Air Quality -->
-            <div class="project-node" data-modal-target="modal-air">
-                <div class="node-core"></div>
-                <div class="project-card">
-                    <h3 class="card-title">Air Quality Analysis</h3>
-                    <p class="card-metric">85% Forecast Accuracy</p>
-                    <p class="card-description">Developed a Random Forest model for air quality forecasting from NYC datasets.</p>
-                    <div class="tech-stack">
-                         <i class="fa-brands fa-python" title="Python"></i>
-                        <span class="tech-label">Plotly</span>
-                        <span class="tech-label">Folium</span>
+            <div class="holo-card" data-modal-target="modal-air">
+                <div class="scan-line"></div>
+                <div class="card-content">
+                    <div class="card-header">
+                        <i class="fa-solid fa-wind card-icon"></i>
+                        <span class="card-id">RF_FORECAST</span>
                     </div>
-                    <button class="card-button">View Details</button>
+                    <h3 class="card-title">Air Quality Forecast</h3>
+                    <div class="metric-container">
+                        <div class="metric-ring" style="--p: 85; --c: #ffa500;">
+                            <svg><circle cx="25" cy="25" r="20"></circle><circle cx="25" cy="25" r="20"></circle></svg>
+                            <div class="metric-value">85%<span>ACC</span></div>
+                        </div>
+                        <div class="metric-text">
+                            <span>Random Forest</span>
+                            <small>Time Series</small>
+                        </div>
+                    </div>
+                    <div class="tech-tags">
+                        <span>Plotly</span>
+                        <span>Folium</span>
+                        <span>Geospatial</span>
+                    </div>
                 </div>
             </div>
+            
+            <div class="holo-card" data-modal-target="modal-sentiment">
+                <div class="scan-line"></div>
+                <div class="card-content">
+                    <div class="card-header">
+                        <i class="fa-solid fa-comments card-icon"></i>
+                        <span class="card-id">COGNIZANT_NLP</span>
+                    </div>
+                    <h3 class="card-title">Enterprise NLP Analytics</h3>
+                    <div class="metric-container">
+                        <div class="metric-ring" style="--p: 100; --c: #ffffff;">
+                            <svg><circle cx="25" cy="25" r="20"></circle><circle cx="25" cy="25" r="20"></circle></svg>
+                            <div class="metric-value">PRO<span>DEV</span></div>
+                        </div>
+                        <div class="metric-text">
+                            <span>Predictive Ops</span>
+                            <small>Unstructured Data</small>
+                        </div>
+                    </div>
+                    <div class="tech-tags">
+                        <span>Feature Eng</span>
+                        <span>Matplotlib/Seaborn</span>
+                        <span>Scikit-Learn</span>
+                    </div>
+                </div>
+            </div>
+
         </main>
         
         <footer class="page-footer">
-            <p>Return to <a href="../index.html">Homepage</a></p>
+            <p>SYSTEM_ID: RC_2025 /// <a href="../index.html">RETURN_ROOT</a></p>
         </footer>
     </div>
     
-    <!-- Modals (Hidden by default) -->
     <div class="modal-backdrop" id="modal-backdrop"></div>
-    
-    <!-- Emotion Classification Modal -->
-    <div class="modal" id="modal-emotion">
-        <button class="modal-close">&times;</button>
-        <h2>Emotion Classification from Text</h2>
-        <div class="modal-content">
-            <h4>Project Goal</h4>
-            <p>To develop and deploy a robust deep learning model capable of accurately classifying human emotions (joy, sadness, anger, fear, etc.) from raw text data, such as social media posts or reviews.</p>
-            <h4>Key Achievements</h4>
+
+    <div class="modal-terminal" id="modal-news">
+        <div class="terminal-header">
+            <span>/// NRMS_HYBRID_ENGINE</span>
+            <button class="modal-close"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="terminal-body">
+            <h2>Personalized News Recommendation System</h2>
+            <div class="spec-grid">
+                <div class="spec-item"><strong>Core:</strong> Hybrid (SVD + Word2Vec)</div>
+                <div class="spec-item"><strong>Dataset:</strong> MIND (156k+ Impressions)</div>
+                <div class="spec-item"><strong>Metric:</strong> 0.64 AUC (90% SOTA)</div>
+                <div class="spec-item"><strong>Training:</strong> &lt; 7 Hours</div>
+            </div>
+            <h4><i class="fas fa-code"></i> Execution Log:</h4>
             <ul>
-                <li>Engineered a comprehensive text preprocessing pipeline using NLTK, including tokenization, lemmatization, and stop-word removal.</li>
-                <li>Trained and evaluated multiple models, identifying a Bidirectional LSTM as the top performer with a <strong>94% test accuracy</strong>.</li>
-                <li>Utilized TF-IDF for baseline models (Logistic Regression, SVC) and Keras Tokenizer with padding for deep learning models.</li>
-                <li>Addressed class imbalance using computed class weights, significantly improving F1-scores for minority classes.</li>
+                <li>Architected a <strong>Hybrid Recommendation Engine</strong> on the Microsoft News Dataset (MIND), processing 156,000+ user impressions by unifying Collaborative Filtering (SVD) and Content-Based Filtering (Word2Vec) to mitigate the “Cold Start” problem.</li>
+                <li>Developed a <strong>Neural News Recommendation (NRMS)</strong> Transformer with Multi-Head Self-Attention, achieving <strong>0.64 AUC</strong> which delivers 90% of the State-of-the-Art (SOTA) research benchmark (0.71 AUC) while utilizing significantly lower computational resources.</li>
+                <li>Benchmarked 8+ filtering architectures, systematically advancing from statistical baselines (Popularity, TF-IDF) to Deep Learning sequences (RNN, LSTM, Bi-LSTM) to strictly evaluate the trade-off between model complexity and inference accuracy.</li>
+                <li>Engineered a custom attention mechanism to capture long-term user interests from click history, improving recommendation relevance for dynamic news content compared to static collaborative filtering methods.</li>
             </ul>
-            <h4>Tech Stack</h4>
-            <p>Python, TensorFlow/Keras, Scikit-learn, NLTK, Pandas, Matplotlib, Jupyter.</p>
-            <a href="[YOUR_GITHUB_LINK_HERE]" class="modal-link" target="_blank">View on GitHub</a>
+            <div class="terminal-actions">
+                <a href="https://github.com/ravi2248/News-Recommendation-System.git" target="_blank" class="cyber-btn">
+                    <i class="fab fa-github"></i> ACCESS_SOURCE_CODE
+                </a>
+            </div>
         </div>
     </div>
     
-     <!-- Credit Approval Modal -->
-    <div class="modal" id="modal-credit">
-        <button class="modal-close">&times;</button>
-        <h2>Credit Approval Prediction Pipeline</h2>
-        <div class="modal-content">
-            <h4>Project Goal</h4>
-            <p>To build a complete, reproducible machine learning pipeline that predicts credit approval status based on historical applicant data. A key challenge was addressing the severe class imbalance in the dataset.</p>
-            <h4>Key Achievements</h4>
+    <div class="modal-terminal" id="modal-emotion">
+        <div class="terminal-header">
+            <span>/// DISTILBERT_SENTIMENT_ENGINE</span>
+            <button class="modal-close"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="terminal-body">
+            <h2>Emotion Classification in Twitter Messages</h2>
+            <div class="spec-grid">
+                <div class="spec-item"><strong>Model:</strong> Fine-tuned DistilBERT</div>
+                <div class="spec-item"><strong>Scale:</strong> 416k+ Tweets</div>
+                <div class="spec-item"><strong>Accuracy:</strong> 94.1% (Beat LSTM)</div>
+                <div class="spec-item"><strong>Deploy:</strong> Flask / Real-time</div>
+            </div>
+            <h4><i class="fas fa-code"></i> Execution Log:</h4>
             <ul>
-                <li>Conducted extensive EDA and advanced feature engineering, including log transformations and categorical encoding.</li>
-                <li>Successfully addressed the 8% approval rate class imbalance using the <strong>SMOTE (Synthetic Minority Over-sampling Technique)</strong>.</li>
-                <li>Trained and optimized a LightGBM classifier, achieving a strong <strong>ROC-AUC score of ~0.85</strong> on the holdout test set.</li>
-                <li>Generated comprehensive evaluation reports, including confusion matrices and feature importance plots.</li>
+                <li>Engineered and benchmarked 7+ machine learning architectures, ranging from statistical baselines (Naïve Bayes, Logistic Regression, SVC) to Deep Learning models (RNN, LSTM, Bi-LSTM), to identify the optimal classifier.</li>
+                <li>Achieved state-of-the-art performance (<strong>94.1% accuracy</strong>) by fine-tuning a DistilBERT Transformer, outperforming the best LSTM model (93.5%) and traditional machine learning baselines by significant margins.</li>
+                <li>Deployed the winning Transformer model as a scalable <strong>Flask web application</strong>, enabling real-time inference and dynamic multimedia mapping based on predicted user sentiment.</li>
+                <li>Optimized training pipelines by implementing TF-IDF vectorization for traditional models and custom tokenization for Deep Learning, addressing severe class imbalances to boost recall for minority emotions like “Surprise”.</li>
             </ul>
-            <h4>Tech Stack</h4>
-            <p>Python, LightGBM, Scikit-learn, Pandas, SMOTE, Matplotlib, Seaborn.</p>
-             <a href="[YOUR_GITHUB_LINK_HERE]" class="modal-link" target="_blank">View on GitHub</a>
+            <div class="terminal-actions">
+                <a href="https://github.com/ravi2248/Emotion-Classification-in-Twitter-Messages.git" target="_blank" class="cyber-btn">
+                    <i class="fab fa-github"></i> ACCESS_SOURCE_CODE
+                </a>
+            </div>
         </div>
     </div>
     
-    <!-- Sentiment Analysis Modal -->
-    <div class="modal" id="modal-sentiment">
-        <button class="modal-close">&times;</button>
-        <h2>Sentiment Analysis of IMDB Reviews</h2>
-        <div class="modal-content">
-            <h4>Project Goal</h4>
-            <p>To construct a sentiment classification pipeline to determine whether movie reviews are positive or negative, using a dataset of 50,000 IMDB reviews.</p>
-            <h4>Key Achievements</h4>
+    <div class="modal-terminal" id="modal-credit">
+        <div class="terminal-header">
+            <span>/// LIGHTGBM_RISK_PIPELINE</span>
+            <button class="modal-close"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="terminal-body">
+            <h2>Credit Approval Prediction</h2>
+            <div class="spec-grid">
+                <div class="spec-item"><strong>Model:</strong> LightGBM Gradient Boost</div>
+                <div class="spec-item"><strong>Data:</strong> 1.4M+ Credit Logs</div>
+                <div class="spec-item"><strong>Metric:</strong> 0.85 ROC-AUC</div>
+                <div class="spec-item"><strong>Tech:</strong> SMOTE (Balancing)</div>
+            </div>
+            <h4><i class="fas fa-code"></i> Execution Log:</h4>
             <ul>
-                <li>Implemented a robust text preprocessing pipeline including tokenization, stemming, and stop-word removal.</li>
-                <li>Achieved <strong>86% accuracy</strong> with a Random Forest model, representing a +15% improvement over the baseline.</li>
-                <li>Applied dimensionality reduction techniques (PCA, SVD) to enhance model performance and reduce overfitting.</li>
-                <li>Deployed the results in an interactive Python dashboard for real-time sentiment analysis.</li>
+                <li>Architected a credit risk scoring model using 438,000+ application records and 1,000,000+ credit history logs, consolidating fragmented datasets to automate manual loan processes.</li>
+                <li>Developed a high-performance <strong>LightGBM</strong> gradient boosting classifier, achieving <strong>0.85 ROC-AUC</strong>, successfully identifying high-risk applicants while maintaining a high approval rate for qualified customers.</li>
+                <li>Solved severe class imbalance (90% rejection rate) by implementing <strong>SMOTE</strong> (Synthetic Minority Over-sampling Technique), which prevented model bias and significantly improved recall for the minority “Approved” class.</li>
+                <li>Engineered predictive features such as “Years Employed” and “Log-Transformed Income” to normalize skewed financial data, reducing the influence of outliers and improving model stability by ~15%.</li>
             </ul>
-            <h4>Tech Stack</h4>
-            <p>Python, Scikit-learn (Naive Bayes, SVM, Random Forest), PCA, SVD, Pandas.</p>
-             <a href="[YOUR_GITHUB_LINK_HERE]" class="modal-link" target="_blank">View on GitHub</a>
+            <div class="terminal-actions">
+                <a href="https://github.com/ravi2248/credit-card-approval-prediction.git" target="_blank" class="cyber-btn">
+                    <i class="fab fa-github"></i> ACCESS_SOURCE_CODE
+                </a>
+            </div>
         </div>
     </div>
-    
-    <!-- Air Quality Modal -->
-    <div class="modal" id="modal-air">
-        <button class="modal-close">&times;</button>
-        <h2>Air Quality Forecasting & Analysis</h2>
-        <div class="modal-content">
-            <h4>Project Goal</h4>
-            <p>To analyze over 100,000 air quality records from NYC and global datasets to forecast pollution levels and identify pollution hotspots.</p>
-            <h4>Key Achievements</h4>
+
+    <div class="modal-terminal" id="modal-fake-news">
+        <div class="terminal-header">
+            <span>/// TEXT_CLASSIFICATION_OPS</span>
+            <button class="modal-close"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="terminal-body">
+            <h2>Fake News Detection System</h2>
+            <div class="spec-grid">
+                <div class="spec-item"><strong>Algo:</strong> Logistic Regression</div>
+                <div class="spec-item"><strong>Dataset:</strong> WELFake (72k)</div>
+                <div class="spec-item"><strong>Accuracy:</strong> 94.75%</div>
+                <div class="spec-item"><strong>Feat:</strong> TF-IDF (5000 feats)</div>
+            </div>
+            <h4><i class="fas fa-code"></i> Execution Log:</h4>
+            <ul>
+                <li>Developed a robust Fake News Classifier using the WELFake dataset (72,134 news articles), performing rigorous text preprocessing (Stemming, Stopword Removal).</li>
+                <li>Benchmarked 4 classifiers (Logistic Regression, Decision Tree, Random Forest, Gradient Boosting), identifying <strong>Logistic Regression</strong> as the best performer with <strong>94.75% Accuracy</strong>.</li>
+                <li>Implemented <strong>TF-IDF Vectorization</strong> (5000 features) to convert unstructured text into meaningful numerical input for machine learning models.</li>
+                <li>Analyzed model performance using confusion matrices, demonstrating superior ability to distinguish between real and fake news compared to complex tree-based ensembles.</li>
+            </ul>
+            <div class="terminal-actions">
+                <a href="https://github.com/ravi2248/Fake-News-Detection.git" target="_blank" class="cyber-btn">
+                    <i class="fab fa-github"></i> ACCESS_SOURCE_CODE
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-terminal" id="modal-air">
+        <div class="terminal-header">
+            <span>/// TIME_SERIES_FORECAST</span>
+            <button class="modal-close"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="terminal-body">
+            <h2>Air Quality Forecasting</h2>
+            <div class="spec-grid">
+                <div class="spec-item"><strong>Model:</strong> Random Forest</div>
+                <div class="spec-item"><strong>Viz:</strong> Plotly / Folium</div>
+                <div class="spec-item"><strong>Accuracy:</strong> 85%</div>
+                <div class="spec-item"><strong>MSE:</strong> &lt; 0.02</div>
+            </div>
+            <h4><i class="fas fa-code"></i> Execution Log:</h4>
             <ul>
                 <li>Developed a Random Forest model that achieved <strong>85% forecasting accuracy</strong> with a Mean Squared Error of less than 0.02.</li>
                 <li>Created compelling geospatial pollution heatmaps using <strong>Plotly and Folium</strong>, successfully identifying hotspots across more than 50 locations.</li>
                 <li>Processed and cleaned large datasets containing NO2 and PM2.5 readings to prepare them for modeling.</li>
+                <li>Engineered temporal features from timestamp data to capture seasonal pollution trends.</li>
             </ul>
-            <h4>Tech Stack</h4>
-            <p>Python, Scikit-learn (Random Forest), Pandas, Plotly, Folium.</p>
-            <a href="[YOUR_GITHUB_LINK_HERE]" class="modal-link" target="_blank">View on GitHub</a>
+            <div class="terminal-actions">
+                <a href="https://github.com/ravi2248/Air-Quality-Analysis.git" target="_blank" class="cyber-btn">
+                    <i class="fab fa-github"></i> ACCESS_SOURCE_CODE
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal-terminal" id="modal-sentiment">
+        <div class="terminal-header">
+            <span>/// COGNIZANT_INTERN_WORKFLOW</span>
+            <button class="modal-close"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="terminal-body">
+            <h2>Enterprise NLP & Predictive Analytics</h2>
+            <div class="spec-grid">
+                <div class="spec-item"><strong>Context:</strong> Cognizant Internship</div>
+                <div class="spec-item"><strong>Focus:</strong> Unstructured Data</div>
+                <div class="spec-item"><strong>Tech:</strong> NLP / Scikit-Learn</div>
+                <div class="spec-item"><strong>Output:</strong> Predictive Prototypes</div>
+            </div>
+            <h4><i class="fas fa-code"></i> Execution Log:</h4>
+            <ul>
+                <li>Implemented proof-of-concept ML models for structured and unstructured data to demonstrate predictive analytics capabilities for enterprise use cases.</li>
+                <li>Applied advanced <strong>feature engineering</strong> techniques (missing value imputation, categorical encoding, scaling, and text preprocessing) to improve model accuracy and data quality.</li>
+                <li>Built exploratory <strong>EDA reports</strong> with Matplotlib, Seaborn, and Pandas to identify data patterns and drive data-backed feature selection.</li>
+                <li>Assisted in developing <strong>sentiment analysis</strong> and recommendation system prototypes using NLP and collaborative filtering techniques.</li>
+            </ul>
+            <div class="terminal-actions">
+                <a href="https://github.com/ravi2248/Sentiment-Analysis-Using-Machine-Learning-Algorithms.git" target="_blank" class="cyber-btn">
+                    <i class="fab fa-github"></i> ACCESS_SOURCE_CODE
+                </a>
+            </div>
         </div>
     </div>
 
-
-    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.fog.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
+    
     <script>
-        // --- VANTA.js Animated Fog Background ---
-        VANTA.FOG({
-            el: "#vanta-bg",
-            mouseControls: true,
-            touchControls: true,
-            gyroControls: false,
-            minHeight: 200.00,
-            minWidth: 200.00,
-            highlightColor: 0x2c6b9c,
-            midtoneColor: 0x224d8f,
-            lowlightColor: 0x8a3ffc,
-            baseColor: 0x0d1117,
-            blurFactor: 0.5,
-            speed: 1.2,
-            zoom: 0.8
-        });
-        
-        // --- Modal Interaction Logic ---
-        const projectNodes = document.querySelectorAll('.project-node');
-        const modalBackdrop = document.getElementById('modal-backdrop');
+        // --- 1. VANTA BACKGROUND ---
+        try {
+            VANTA.NET({
+                el: "#vanta-bg",
+                mouseControls: true,
+                touchControls: true,
+                gyroControls: false,
+                minHeight: 200.00,
+                minWidth: 200.00,
+                scale: 1.00,
+                scaleMobile: 1.00,
+                color: 0x38bdf8,
+                backgroundColor: 0x050505, 
+                points: 12.00,
+                maxDistance: 22.00,
+                spacing: 16.00
+            });
+        } catch (e) { console.log("Vanta error", e); }
 
-        projectNodes.forEach(node => {
-            node.addEventListener('click', () => {
-                const modalId = node.dataset.modalTarget;
-                const modal = document.getElementById(modalId);
-                openModal(modal);
+        // --- 2. 3D TILT EFFECT ---
+        const cards = document.querySelectorAll('.holo-card');
+        
+        cards.forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                const rotateX = ((y - centerY) / centerY) * -10;
+                const rotateY = ((x - centerX) / centerX) * 10;
+                
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)`;
+            });
+            
+            card.addEventListener('click', () => {
+                const modalId = card.dataset.modalTarget;
+                openModal(modalId);
             });
         });
 
-        modalBackdrop.addEventListener('click', () => {
-            const activeModal = document.querySelector('.modal.active');
-            if (activeModal) {
-                closeModal(activeModal);
+        // --- 3. MODAL LOGIC ---
+        const backdrop = document.getElementById('modal-backdrop');
+        
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if(modal) {
+                modal.classList.add('active');
+                backdrop.classList.add('active');
+                document.body.style.overflow = 'hidden';
             }
-        });
-        
-        document.querySelectorAll('.modal-close').forEach(button => {
-            button.addEventListener('click', () => {
-                const modal = button.closest('.modal');
-                closeModal(modal);
-            });
-        });
-
-        function openModal(modal) {
-            if (modal == null) return;
-            modal.classList.add('active');
-            modalBackdrop.classList.add('active');
         }
 
-        function closeModal(modal) {
-            if (modal == null) return;
-            modal.classList.remove('active');
-            modalBackdrop.classList.remove('active');
+        function closeModal() {
+            document.querySelectorAll('.modal-terminal').forEach(m => m.classList.remove('active'));
+            backdrop.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        backdrop.addEventListener('click', closeModal);
+        document.querySelectorAll('.modal-close').forEach(btn => {
+            btn.addEventListener('click', closeModal);
+        });
+
+        // --- 4. MOBILE MENU ---
+        function toggleMenu() {
+            const overlay = document.getElementById('mobile-overlay');
+            const btn = document.querySelector('.mobile-menu-btn');
+            overlay.classList.toggle('active');
+            btn.classList.toggle('active');
         }
     </script>
 </body>
